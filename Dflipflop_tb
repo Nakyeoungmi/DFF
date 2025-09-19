@@ -1,0 +1,25 @@
+`timescale 1ns / 1ps
+
+module Dflipflop_tb();
+
+reg clk,D;
+wire Q;
+
+Dflipflop FF(clk,D,Q);
+
+initial begin
+    clk<=0;
+    #10 D<=0;
+    #10 D<=1;
+    #10 D<=0;
+    #10 D<=1;
+    #10 D<=0;
+    #10 D<=1;
+end
+
+always begin
+    #70 clk<=~clk;
+end
+
+
+endmodule
